@@ -21,7 +21,6 @@
 
 ## 1 - Create APP, set View Engine, and set static middleware:
 ```javascript
-
 var app = express();
 
 // set up template engine
@@ -64,6 +63,8 @@ module.exports = function(app){  We export the whole function with methods insid
 **inside todoController.js:**
 - handle res.render(todo) on app.get('/todo');
 
+---
+
 ## 4 - Handle Adding and Deleting items:
 **understanding todo-list.js with ajax:**
 - ***submit method:*** adding new item value set on 'input form' to todo's array, send new data via POST request to same URL by realoading url
@@ -84,9 +85,9 @@ var todoSchema = new mongoose.Schema({
   item: String
 });
 ```
-- create ***Model*** with our schema and our model name
+- create **Model** with our schema and our model name
 ```javascript
-// model
+// Create a model
 var Todo = mongoose.model('Todo', todoSchema);
 ```
 
