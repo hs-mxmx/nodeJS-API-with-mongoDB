@@ -1,5 +1,5 @@
 
-# nodeJS-API && mongoDB
+# • nodeJS-API && mongoDB
 
 ***API is gonna be structured following MVC structure***
 
