@@ -63,6 +63,7 @@ module.exports = function(app){  We export the whole function with methods insid
 **inside todoController.js:**
 - handle res.render(todo) on app.get('/todo');
 
+
 ---
 
 ## 4 - Handle Adding and Deleting items:
@@ -73,6 +74,7 @@ module.exports = function(app){  We export the whole function with methods insid
 > modify POST and DELETE requests on todoController.js
 - ***POST:*** push new data send via REQ to data's array and reaload page with the new data
 - ***DELETE:*** filter data by looping on the data's array to find req.params, once it is found, it will be replaced
+
 
 ---
 
