@@ -3,15 +3,15 @@
 
 ***API is gonna be structured following MVC structure***
 
-> ***Model: Data***
+> **Model: Data**
 - TODOS
 - USERS
 
-> ***View: Template Files (EJS)***
+> **View: Template Files (EJS)**
 - TODO.EJS
 - ACCOUNT.EJS
 
-> ***Controller: Controls the APP, selections***
+> **Controller: Controls the APP, selections**
 - todoController
 - userController
 
@@ -41,12 +41,13 @@ console.log(`Server listening on port ${port}...`);
 ## 2 - Create controllers folder
 > todoController.js, dataBase.js...
 
-***inside app.js:*** 
+**inside app.js:** 
 ```javascript
 todoController = require('/controllers/todoController.js);
 todoController(app);  //We give our app to be handled and manipulated to the controller
-
-***inside todoController.js:***
+```
+**inside todoController.js:**
+```javascript
 module.exports = function(app){  We export the whole function with methods inside
   app.get('/todo', function(req,res){...});
   app.post('/todo', urlencodedParser,function(req,res){...}); // urlencodedParser to handle body 
@@ -57,14 +58,14 @@ module.exports = function(app){  We export the whole function with methods insid
 ---
 
 ## 3 - Create views and todo-list.js
-***inside public/assets:***
+**inside public/assets:**
 - handle html code inside todo.ejs in relation with assets' files (logo,styles...)
 - look for jQuery CDN script inside todo.ejs code
-***inside todoController.js:***
+**inside todoController.js:**
 - handle res.render(todo) on app.get('/todo');
 
 ## 4 - Handle Adding and Deleting items:
-***understanding todo-list.js with ajax:***
+**understanding todo-list.js with ajax:**
 - ***submit method:*** adding new item value set on 'input form' to todo's array, send new data via POST request to same URL by realoading url
 - ***deleting method:*** deleting item clicked on URL 'li form' replacing new text and sending it back via DELETE request to same URL by realoading url
 
@@ -75,8 +76,8 @@ module.exports = function(app){  We export the whole function with methods insid
 ---
 
 ## 5 - Create mongoDB and stablish connection to Atlas
-- install ***mongoose*** to stablish connection via nodeJS
-- create ***Schema*** for data that gonna be added to our mongoDB
+- install **mongoose** to stablish connection via nodeJS
+- create **Schema** for data that gonna be added to our mongoDB
 ```javascript
 // Create a schema - like blueprint
 var todoSchema = new mongoose.Schema({
@@ -92,14 +93,14 @@ var Todo = mongoose.model('Todo', todoSchema);
 ---
 
 ## 6 - Modify our requests with new mongoDB data
-***app.get:***
+**app.get:**
 - Todo.find({},function(err,data))... it will return everything from the db and will save it into data variable
 
-***app.post:***
+**app.post:**
 - newTodo = Todo(req.body).save(err,data)...
 - Todo -> is the model we've already created
 - req.body -> data from POST request
 
-***app.delete:***
+**app.delete:**
 - Todo.find({item:req.params.item.replace(/\-/g, " ")}).remove(function(err,data)
 - find item from 'Todo' model ande replace it with " " 
